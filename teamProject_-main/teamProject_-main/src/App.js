@@ -4,6 +4,8 @@ import './App.css';
 import Template from "./components/Template";
 import TodoList from "./components/TodoList";
 import TodoInsert from "./components/TodoInsert";
+import ProgressBar from "./components/ProgressBar";
+
 
 let nextId = 4;
 const App = () => {
@@ -65,6 +67,9 @@ const App = () => {
 
   return (
   <Template todoLength={todos.length}>
+    <div className="App">
+      <ProgressBar bgcolor={"#f67280"} nowStep={todos.filter((todos) => todos.checked === true).length} totalStep={todos.length} />
+    </div>
     <TodoList 
     todos={todos} 
     onCheckToggle={onCheckToggle} 
